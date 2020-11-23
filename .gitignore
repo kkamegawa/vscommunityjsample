@@ -348,4 +348,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-/demoproject/02_demo/Properties/launchSettings.json
+
+# remove VS Code's folder
+.vscode/
+launchSettings.json
