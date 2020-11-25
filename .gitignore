@@ -352,3 +352,6 @@ MigrationBackup/
 # remove VS Code's folder
 .vscode/
 launchSettings.json
+
+# reshaper
+.idea/
