@@ -10,16 +10,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /src
-COPY ["MessageBoardSample.csproj", ""]
-RUN dotnet restore "./MessageBoardSample.csproj"
+COPY ["WebApptest/WebApptest.csproj", "WebApptest/"]
+RUN dotnet restore "WebApptest/WebApptest.csproj"
 COPY . .
-WORKDIR "/src/."
-RUN dotnet build "MessageBoardSample.csproj" -c Release -o /app/build
+WORKDIR "/src/WebApptest"
+RUN dotnet build "WebApptest.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "MessageBoardSample.csproj" -c Release -o /app/publish
+RUN dotnet publish "WebApptest.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "MessageBoardSample.dll"]
+ENTRYPOINT ["dotnet", "WebApptest.dll"]
