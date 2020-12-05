@@ -355,3 +355,4 @@ launchSettings.json
 
 # reshaper
 .idea/
+.DS_Store
